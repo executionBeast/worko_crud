@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD API Guide</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>CRUD API Guide</h1>
+        <p>A detailed description of how to use a CRUD API.</p>
+    </header>
+    <main>
+        <section>
+            <h2>Introduction</h2>
+            <p>CRUD stands for Create, Read, Update, and Delete. These are the basic operations for managing data in an application. Below is a guide on how to use a CRUD API.</p>
+        </section>
+
+        <section>
+            <h2>Create</h2>
+            <p>To create a new user, use the POST method. Here's an example:</p>
+            <pre>
+<code>
+POST /api/create
+Content-Type: application/json
+
+{
+    "name": "New user",
+    "email": "email@example.com",
+    "age":"xxx",
+    "city":"city-name",
+    "zipcode":"xxxxx"
+}
+</code>
+            </pre>
+            <p>This request creates a new user with the provided details.</p>
+        </section>
+
+        <section>
+            <h2>Read</h2>
+            <p>To read or retrieve users, use the GET method. Here's an example:</p>
+            <pre>
+<code>
+
+Request: GET /api/user?id=xxxxxxxxx
+Response :
+{
+    "name": "user",
+    "email": "email@example.com",
+    "age":"xxx",
+    "city":"city-name",
+    "zipcode":"xxxxx"
+}
+
+All Users:
+Request: GET /api/user
+Response: Array 
+[
+{
+    "name": "user1",
+    "email": "user1email@example.com",
+    "age":"xxx",
+    "city":"city-name",
+    "zipcode":"xxxxx"
+},
+{
+    "name": "user2",
+    "email": "user2email@example.com",
+    "age":"xxx",
+    "city":"city-name",
+    "zipcode":"xxxxx"
+},
+.
+.
+.
+]
+
+
+</code>
+            </pre>
+            <p>This request retrieves the user with the specified ID.</p>
+        </section>
+
+        <section>
+            <h2>Update</h2>
+            <p>To update an existing user, use the PUT or PATCH method. Here's an example:</p>
+            <pre>
+<code>
+Request: PUT /api/user?id=xxxxxxxxxx
+Content-Type: application/json
+
+{
+    "city": "new-city",
+}
+
+Response: 
+{
+    "name": "user1",
+    "email": "user1email@example.com",
+    "age":"xxx",
+    "city":"new-city",
+    "zipcode":"xxxxx"
+}
+</code>
+            </pre>
+            <p>This request updates the user with the provided details.</p>
+        </section>
+
+        <section>
+            <h2>Delete</h2>
+            <p>To delete a user, use the DELETE method. Here's an example:</p>
+            <pre>
+<code>
+Request: DELETE /api/user?id=xxxxxxxxx
+Response:
+{
+    "msg":"User Deleted Successfully",
+    "deletedUser":{
+        "name": "user1",
+        "email": "user1email@example.com",
+        "age":"xxx",
+        "city":"city-name",
+        "zipcode":"xxxxx"
+    }
+}
+</code>
+            </pre>
+            <p>This request deletes the user with the specified ID.</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 CRUD API Guide. All rights reserved.</p>
+    </footer>
+</body>
+</html>
