@@ -2,7 +2,6 @@ const joi= require('joi')
 
 const userSchemaJOI = joi.object({
   name: joi.string()
-           .alphanum()
            .min(1)
            .max(50)
            .required(),
