@@ -2,6 +2,7 @@ const express = require("express")
 const dotenv = require('dotenv')
 const connectDB = require('./database/connection')
 const path  = require('path')
+const cors = require('cors')
 //route.js contains all routes defined it is used here in index.js at '/' endpoint
 //since I am working on API so I have to later change it to '/api'
 const router = require('./routes/route')
@@ -15,6 +16,13 @@ const DB_URI = process.env.DB_URI
 
 connectDB(DB_URI)
 
+
+'application/json'
+app.use(cors({
+  origin:'*',
+  methods:['GET','POST','PUT', 'DELETE'],
+  allowedHeaders:['Content-type']
+}))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 

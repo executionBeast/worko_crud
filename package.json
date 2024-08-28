@@ -13,8 +13,28 @@
     "express": "^4.19.2",
     "nodemon": "^3.1.4"
   },
+  "headers": [
+    {
+      "source": "/api/user",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET,POST, PUT, DELETE"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type"
+        }
+      ]
+    }
+  ],
   "dependencies": {
     "axios": "^1.7.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "jest": "^29.7.0",
