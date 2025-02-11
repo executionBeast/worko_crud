@@ -16,7 +16,7 @@ const userSchemaJOI = joi.object({
           .required(),
 
   city: joi.string()
-           .alphanum()
+           .pattern(new RegExp(`^[a-zA-Z ]{3,100}$`))
            .required(),
 
   zipcode: joi.number()
