@@ -29,7 +29,7 @@ const swaggerOptions = {
     },
   },
 
-    servers: [{url: 'http://localhost:8000'}],
+    servers: [{url: `http://localhost:${PORT}`}],
     apis: ['./routes/route.js']
 }
 
