@@ -4,8 +4,8 @@ const userDTO = require('../data-transfer-object/dto.user')
 exports.create = async (req,res)=>{
   try{
     const user = new User({
-      id:`${req.body.name}${Date.now()}`,
-      name:req.body.name,
+      id:`${req.body.username}${Date.now()}`,
+      username:req.body.username,
       email:req.body.email,
       age:req.body.age,
       city:req.body.city,
@@ -63,7 +63,7 @@ exports.updateUser = async (req,res)=>{
   try{
     const filter = {id:req.query.id,isDeleted:null || undefined}
     const payload = {
-      name:req.body.name,
+      username:req.body.username,
       email:req.body.email,
       age:req.body.age,
       city:req.body.city,
@@ -95,6 +95,7 @@ exports.delete = async (req,res)=>{
   //Soft Delete
   try{
     const filter = {id: req.query.id}
+    console.log("User ID to Delete",filter)
     const delPayload = {
       isDeleted:true,
       deletedAt:Date.now()

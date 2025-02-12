@@ -1,7 +1,7 @@
 class userDTO {
   constructor(user){
     this.id = user.id
-    this.name = user.name
+    this.username = user.username
     this.email = user.email
     this.age = user.age
     this.city = user.city

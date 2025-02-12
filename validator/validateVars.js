@@ -1,6 +1,6 @@
 const joi = require("joi")
 const validateUserPutData = joi.object({
-  name: joi.string()
+  username: joi.string()
            .alphanum()
            .min(1)
            .max(50),

@@ -1,7 +1,7 @@
 const joi= require('joi')
 
 const userSchemaJOI = joi.object({
-  name: joi.string()
+  username: joi.string()
            .min(1)
            .max(50)
            .required(),
@@ -14,10 +14,10 @@ const userSchemaJOI = joi.object({
           .min(1)
           .max(299)
           .required(),
-
   city: joi.string()
-           .pattern(new RegExp(`^[a-zA-Z ]{3,100}$`))
-           .required(),
+          .min(3)
+          .max(300)
+          .required(),
 
   zipcode: joi.number()
               .min(10000)

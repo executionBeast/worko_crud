@@ -23,7 +23,7 @@ exports.validatePostData = (req,res,next) =>{
 
 exports.validatePutData = (req,res,next)=>{
 
-  const {name,email,age,city,zipcode} = req.body
+  const {username,email,age,city,zipcode} = req.body
   let data = req.body
   let {error} = validateUserPutData.validate(data)
   console.log(error)
@@ -47,10 +47,11 @@ exports.validatePutData = (req,res,next)=>{
 exports.validateIsDeleted = async (req,res,next) =>{
   try{
     const id = req.query.id;
-    const response = await axios.get(`http://localhost:8000/user?id=${id}`)
-    
+    console.log("ID recieved for deletion", id)
+    const response = await axios.get(`http://localhost:8000/api/user?id=${id}`)
+    console.log("Deletion user Fetched", response.data)
     if(response.data.isDeleted || !response){
-      res.status(404).json({err:'User does not exist!'})
+      res.status(404).json({err:'User does not exist!tfdiutdiutduitdiutd'})
       return(0)
     }
     else{
