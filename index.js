@@ -15,8 +15,8 @@ const app = express()
 dotenv.config({path:'./config.env'})
 const PORT = process.env.PORT
 const DB_URI = process.env.DB_URI
-const VERCEl_URL = process.env.VERCEl_URL
-
+const VERCEL_URL = process.env.VERCEL_URL
+console.log("VERCEL URL ==>",VERCEL_URL)
 
 connectDB(DB_URI)
 
@@ -30,7 +30,7 @@ const swaggerOptions = {
     },
   },
 
-    servers: [{url:process.env.VERCEL_URL || `https://localhost:${PORT}`}],
+    servers: [{url: process.env.VERCEL_URL ? process.env.VERCEL_URL : `https://localhost:${PORT}`}],
     apis: ['./routes/route.js']
 }
 
