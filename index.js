@@ -29,7 +29,7 @@ const swaggerOptions = {
     },
   },
 
-    servers: [{url: `http://localhost:${PORT}`}],
+    servers: [{url: `https://worko-crud.vercel.app/`}],
     apis: ['./routes/route.js']
 }
 
