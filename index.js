@@ -44,8 +44,14 @@ app.use(cors({
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
+const options = {
+  customCss: '.swagger-ui .topbar { display: none }'
+}
+
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocs,options));
+
 app.use('/api',router)
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
 
 
 module.exports = app; //for vercel to use
