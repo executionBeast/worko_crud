@@ -48,7 +48,7 @@ const options = {
   customCss: '.swagger-ui .topbar { display: none }'
 }
 
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocs,options));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs,options));
 
 app.use('/api',router)
 
