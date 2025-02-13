@@ -28,8 +28,8 @@ const swaggerOptions = {
     },
   },
 
-    servers: [{}],
-    apis: ['./routes/route.js']
+    servers: [{url: 'http:localhost:8000'}],
+    apis: ['./routes/*.js']
 }
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
@@ -48,10 +48,10 @@ const options = {
   customCss: '.swagger-ui .topbar { display: none }'
 }
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs,options));
 
 app.use('/api',router)
 
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocs,options));
 
 
 module.exports = app; //for vercel to use
