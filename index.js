@@ -1,14 +1,12 @@
 const express = require("express")
 const dotenv = require('dotenv')
 const connectDB = require('./database/connection')
-const path  = require('path')
 const cors = require('cors')
 const swaggerJsDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
 //route.js contains all routes defined it is used here in index.js at '/' endpoint
 //since I am working on API so I have to later change it to '/api'
 const router = require('./routes/route')
-const { description } = require("./validator/userValidator")
 
 const app = express()
 
@@ -30,7 +28,7 @@ const swaggerOptions = {
     },
   },
 
-    servers: [{url: SWAGGER_SERVER_URL}],
+    servers: [{}],
     apis: ['./routes/route.js']
 }
 
@@ -46,15 +44,6 @@ app.use(cors({
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
-// app.use(express.static(path.join(__dirname, 'public')));
-
-// app.get('/',(req,res)=>{
-//   res.render('index')
-//   res.status(200).json({conn:'Succesfully Connected'})
-// })
-
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs')
 app.use('/api',router)
 app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
