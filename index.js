@@ -23,7 +23,7 @@ console.log("SWAGGER_SERVER_URL ==>",SWAGGER_SERVER_URL)
 connectDB(DB_URI)
 
 const swaggerOptions = {
-  swaggerDefinition: {
+  definition: {
     openapi: '3.0.0',
     info: {
       title: 'User Management | CRUD APIs',
@@ -55,7 +55,9 @@ const options = {
 
 app.use('/api',router)
 
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocs,{customCssUrl: CSS_URL}))
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocs,{
+  customCssUrl: "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css", // Load from a CDN
+}))
 
 
 module.exports = app; //for vercel to use
