@@ -14,7 +14,11 @@ dotenv.config({path:'./config.env'})
 const PORT = process.env.PORT
 const DB_URI = process.env.DB_URI
 const SWAGGER_SERVER_URL = process.env.SWAGGER_SERVER_URL
+const CSS_URL =
+  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
+
 console.log("SWAGGER_SERVER_URL ==>",SWAGGER_SERVER_URL)
+
 
 connectDB(DB_URI)
 
@@ -28,8 +32,8 @@ const swaggerOptions = {
     },
   },
 
-    servers: [{url: 'http:localhost:8000'}],
-    apis: ['./routes/*.js']
+    servers: [{url: "https://worko-crud.vercel.app/"}],
+    apis: ["./routes/*.js"]
 }
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
@@ -51,7 +55,7 @@ const options = {
 
 app.use('/api',router)
 
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocs,options));
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocs,{customCssUrl: CSS_URL}))
 
 
 module.exports = app; //for vercel to use
