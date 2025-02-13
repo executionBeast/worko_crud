@@ -13,10 +13,10 @@ const { description } = require("./validator/userValidator")
 const app = express()
 
 dotenv.config({path:'./config.env'})
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT
 const DB_URI = process.env.DB_URI
-const VERCEL_URL = process.env.VERCEL_URL || `https://localhost:${PORT}`
-console.log("VERCEL URL ==>",VERCEL_URL)
+const SWAGGER_SERVER_URL = process.env.SWAGGER_SERVER_URL
+console.log("SWAGGER_SERVER_URL ==>",SWAGGER_SERVER_URL)
 
 connectDB(DB_URI)
 
@@ -30,7 +30,7 @@ const swaggerOptions = {
     },
   },
 
-    servers: [{url: VERCEL_URL}],
+    servers: [{url: SWAGGER_SERVER_URL}],
     apis: ['./routes/route.js']
 }
 
