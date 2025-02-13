@@ -56,7 +56,7 @@ const options = {
 app.use('/api',router)
 
 app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocs,{
-  customCss: ".opblock-summary-path-description-wrapper { display:flex; padding-left:4px; gap:8px; justify-content:center; align-items:center }",
+  customCss: ".opblock-summary-path-description-wrapper { display:contents; padding-left:4px; gap:8px; justify-content:center; align-items:center }",
   customCssUrl: "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css", // Load from a CDN
 }))
 
